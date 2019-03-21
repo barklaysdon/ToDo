@@ -15,7 +15,7 @@ class Todo extends Component {
           marginBottom: 10,
           justifyContent: "space-between",
           alignItems: "center",
-          padding: 15,
+          padding: 16,
           marginHorizontal: 10,
           flexDirection: "row",
           ...LowShadow

@@ -77,21 +77,6 @@ class Main extends Component {
     }
   };
 
-  // apply when edit todo
-  // EditTodo = key => {
-  //   const { data, title } = this.state;
-  //   // let todo = {
-  //   //   key: uuid1(),
-  //   //   title: title
-  //   // };
-
-  //   const newData = [...data];
-
-  //   const filtrer = newData.splice(newData.indexOf(key), 1, todo);
-
-  //   this.setState({ data: filtrer, showeditPop: false });
-  // };
-
   render() {
     const { data, title } = this.state;
     return (

@@ -1,30 +1,20 @@
 import React, { Component } from "react";
-import { View, Text } from "react-native";
+import { View, Text, StyleSheet } from "react-native";
 import { Regular, LowShadow, Color } from "../Utiles/variables";
 import { Button } from "react-native-elements";
 import Icon from "react-native-vector-icons/Entypo";
 
 class Todo extends Component {
   render() {
-    let { title } = this.props;
+    let { title, pressEdit, PressDelete, delKey } = this.props;
+
     return (
-      <View
-        style={{
-          borderRadius: 30,
-          backgroundColor: "white",
-          marginBottom: 10,
-          justifyContent: "space-between",
-          alignItems: "center",
-          padding: 16,
-          marginHorizontal: 10,
-          flexDirection: "row",
-          ...LowShadow
-        }}
-      >
+      <View style={styles.Todo}>
         <Text
           style={{
             ...Regular,
-            fontSize: 18
+            fontSize: 20,
+            color: "rgba(0,0,0,0.6)"
           }}
         >
           {title}
@@ -35,24 +25,42 @@ class Todo extends Component {
           }}
         >
           <Button
+            onPress={() => pressEdit(delKey, title)}
+            key={delKey}
             raised
-            buttonStyle={{
-              backgroundColor: "white"
-            }}
+            buttonStyle={styles.buttonStyle}
             icon={<Icon style={{ ...Color }} name="edit" />}
           />
           <Button
-            buttonStyle={{
-              backgroundColor: "red"
-            }}
+            onPress={() => PressDelete(delKey)}
+            buttonStyle={styles.buttonStyle}
             containerStyle={{ marginLeft: 10 }}
             raised
-            icon={<Icon style={{ color: "white" }} name="trash" />}
+            // type="outline"
+            icon={<Icon style={{ color: "red" }} name="trash" />}
           />
         </View>
       </View>
     );
   }
 }
+
+styles = StyleSheet.create({
+  Todo: {
+    borderRadius: 5,
+    backgroundColor: "white",
+    marginBottom: 10,
+    justifyContent: "space-between",
+    alignItems: "center",
+    padding: 16,
+    marginHorizontal: 10,
+    flexDirection: "row",
+    ...LowShadow
+  },
+  buttonStyle: {
+    backgroundColor: "white",
+    borderRadius: 15
+  }
+});
 
 export default Todo;

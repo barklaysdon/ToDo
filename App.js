@@ -2,6 +2,7 @@ import React from "react";
 import { StyleSheet, Text, View } from "react-native";
 import { Font } from "expo";
 import Main from "./src/index";
+// import Test from "./src/test";
 
 export default class App extends React.Component {
   state = {
@@ -16,10 +17,8 @@ export default class App extends React.Component {
     }).then(() => {
       this.setState({
         isReady: true
-      })
-    }
-     
-    );
+      });
+    });
   }
 
   render() {
